@@ -1,5 +1,7 @@
 # PHP Enum Symfony
 
+[![Build Status](https://travis-ci.org/zlikavac32/php-enum-symfony.svg?branch=master)](https://travis-ci.org/zlikavac32/php-enum-symfony) 
+
 Symfony support for [zlikavac32/php-enum](https://github.com/zlikavac32/php-enum).
 
 ## Table of contents
