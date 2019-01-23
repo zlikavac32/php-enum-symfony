@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Zlikavac32\SymfonyEnum\Tests\Validator\Constraints;
 
+use LogicException;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 use Symfony\Component\Validator\Constraints\ChoiceValidator;
@@ -13,7 +14,7 @@ use Zlikavac32\SymfonyEnum\Validator\Constraints\AbstractEnumConstraint;
 class AbstractEnumConstraintTest extends TestCase
 {
     /**
-     * @expectedException \LogicException
+     * @expectedException LogicException
      * @expectedExceptionMessage Enum class can not be null
      */
     public function testThatEnumClassCanNotBeNull(): void
@@ -22,8 +23,8 @@ class AbstractEnumConstraintTest extends TestCase
     }
 
     /**
-     * @expectedException \LogicException
-     * @expectedExceptionMessage Provided enum class stdClass is not valid
+     * @expectedException LogicException
+     * @expectedExceptionMessage stdClass does not have Zlikavac32\Enum\Enum as it's parent
      */
     public function testThatEnumClassMustHaveEnumAsItsParent(): void
     {
@@ -31,7 +32,7 @@ class AbstractEnumConstraintTest extends TestCase
     }
 
     /**
-     * @expectedException \LogicException
+     * @expectedException LogicException
      * @expectedExceptionMessage Key choices is overridden internally so it should not be set from the outside
      */
     public function testThatChoicesOptionMustNotBeSet(): void
@@ -46,7 +47,7 @@ class AbstractEnumConstraintTest extends TestCase
     }
 
     /**
-     * @expectedException \LogicException
+     * @expectedException LogicException
      * @expectedExceptionMessage Key callback is overridden internally so it should not be set from the outside
      */
     public function testThatCallbackOptionMustNotBeSet(): void
@@ -60,7 +61,7 @@ class AbstractEnumConstraintTest extends TestCase
     }
 
     /**
-     * @expectedException \LogicException
+     * @expectedException LogicException
      * @expectedExceptionMessage Key strict is overridden internally so it should not be set from the outside
      */
     public function testThatStrictOptionMustNotBeSet(): void

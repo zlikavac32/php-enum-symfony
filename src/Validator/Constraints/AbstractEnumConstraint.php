@@ -8,6 +8,7 @@ use Closure;
 use LogicException;
 use Symfony\Component\Validator\Constraints\Choice;
 use Symfony\Component\Validator\Constraints\ChoiceValidator;
+use function Zlikavac32\Enum\assertFqnIsEnumClass;
 use Zlikavac32\Enum\Enum;
 
 abstract class AbstractEnumConstraint extends Choice
@@ -52,16 +53,7 @@ abstract class AbstractEnumConstraint extends Choice
             throw new LogicException('Enum class can not be null');
         }
 
-        if (in_array(Enum::class, class_parents($enumClass))) {
-            return;
-        }
-
-        throw new LogicException(
-            sprintf(
-                'Provided enum class %s is not valid',
-                $enumClass
-            )
-        );
+        assertFqnIsEnumClass($enumClass);
     }
 
     /**

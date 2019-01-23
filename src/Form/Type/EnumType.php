@@ -8,6 +8,7 @@ use LogicException;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use function Zlikavac32\Enum\assertFqnIsEnumClass;
 use Zlikavac32\Enum\Enum;
 
 class EnumType extends ChoiceType
@@ -19,7 +20,7 @@ class EnumType extends ChoiceType
         /* @var Enum|string $enumClass */
         $enumClass = $options['enum_class'];
 
-        $this->assertThatEnumClassIsValid($enumClass);
+        assertFqnIsEnumClass($enumClass);
 
         $options = $this->populateOptionsWithDefaults($options);
 
@@ -63,13 +64,6 @@ class EnumType extends ChoiceType
         }
 
         return $choices;
-    }
-
-    private function assertThatEnumClassIsValid(string $enumClass): void
-    {
-        if (false === is_subclass_of($enumClass, Enum::class)) {
-            throw new LogicException(sprintf('%s does not have %s as it\'s parent', $enumClass, Enum::class));
-        }
     }
 
     private function assertThatOverriddenOptionsAreNotSet(array $options): void
