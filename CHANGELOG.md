@@ -1,6 +1,6 @@
 # PHP-Enum Symfony changelog
 
-## Unreleased
+## 0.3.0 (2019-01-23)
 
 * **[CHANGED]** Require `zlikavac32/php-enum:^1.3`
 
