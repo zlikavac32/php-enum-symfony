@@ -1,6 +1,6 @@
 # PHP-Enum Symfony changelog
 
-## Unreleased
+## 0.5.0 (2019-03-26)
 
 * **[ADDED]** Support for `zlikavac32/php-enum:^2.0`
 
