@@ -1,6 +1,6 @@
 # PHP-Enum Symfony changelog
 
-## Unreleased
+## 0.6.0 (2020-04-09)
 
 * **[CHANGED]** Minimum supported `zlikavac32/php-enum` version is 3.0.0
 * **[CHANGED]** Minimum supported PHP version is 7.4
