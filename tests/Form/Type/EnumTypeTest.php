@@ -16,12 +16,11 @@ use Zlikavac32\SymfonyEnum\Tests\Fixtures\YesNoEnum;
 class EnumTypeTest extends TypeTestCase
 {
 
-    /**
-     * @expectedException LogicException
-     * @expectedExceptionMessage Option choices is overridden by the type so don't pass your own value
-     */
     public function testThatPassingChoicesOptionThrowsException(): void
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('Option choices is overridden by the type so don\'t pass your own value');
+
         $this->factory->create(
             EnumType::class,
             null,
@@ -32,12 +31,11 @@ class EnumTypeTest extends TypeTestCase
         );
     }
 
-    /**
-     * @expectedException LogicException
-     * @expectedExceptionMessage Option choice_loader is overridden by the type so don't pass your own value
-     */
     public function testThatPassingChoiceLoaderOptionThrowsException(): void
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('Option choice_loader is overridden by the type so don\'t pass your own value');
+
         $this->factory->create(
             EnumType::class,
             null,
@@ -48,12 +46,11 @@ class EnumTypeTest extends TypeTestCase
         );
     }
 
-    /**
-     * @expectedException LogicException
-     * @expectedExceptionMessage stdClass does not have Zlikavac32\Enum\Enum as it's parent
-     */
     public function testThatEnumClassMustBeValid(): void
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('stdClass does not have Zlikavac32\Enum\Enum as it\'s parent');
+
         $this->factory->create(
             EnumType::class,
             null,

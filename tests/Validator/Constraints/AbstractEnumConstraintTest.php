@@ -13,30 +13,28 @@ use Zlikavac32\SymfonyEnum\Validator\Constraints\AbstractEnumConstraint;
 
 class AbstractEnumConstraintTest extends TestCase
 {
-    /**
-     * @expectedException LogicException
-     * @expectedExceptionMessage Enum class can not be null
-     */
+
     public function testThatEnumClassCanNotBeNull(): void
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('Enum class can not be null');
+
         $this->create(null);
     }
 
-    /**
-     * @expectedException LogicException
-     * @expectedExceptionMessage stdClass does not have Zlikavac32\Enum\Enum as it's parent
-     */
     public function testThatEnumClassMustHaveEnumAsItsParent(): void
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('stdClass does not have Zlikavac32\Enum\Enum as it\'s parent');
+
         $this->create(stdClass::class);
     }
 
-    /**
-     * @expectedException LogicException
-     * @expectedExceptionMessage Key choices is overridden internally so it should not be set from the outside
-     */
     public function testThatChoicesOptionMustNotBeSet(): void
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('Key choices is overridden internally so it should not be set from the outside');
+
         $this->create(
             [
                 'choices' => [
@@ -46,12 +44,11 @@ class AbstractEnumConstraintTest extends TestCase
         );
     }
 
-    /**
-     * @expectedException LogicException
-     * @expectedExceptionMessage Key callback is overridden internally so it should not be set from the outside
-     */
     public function testThatCallbackOptionMustNotBeSet(): void
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('Key callback is overridden internally so it should not be set from the outside');
+
         $this->create(
             [
                 'callback' => function () {
@@ -60,12 +57,11 @@ class AbstractEnumConstraintTest extends TestCase
         );
     }
 
-    /**
-     * @expectedException LogicException
-     * @expectedExceptionMessage Key strict is overridden internally so it should not be set from the outside
-     */
     public function testThatStrictOptionMustNotBeSet(): void
     {
+        $this->expectException(LogicException::class);
+        $this->expectExceptionMessage('Key strict is overridden internally so it should not be set from the outside');
+
         $this->create(
             [
                 'strict' => false,

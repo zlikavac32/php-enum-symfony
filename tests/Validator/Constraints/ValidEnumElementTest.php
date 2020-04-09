@@ -56,6 +56,7 @@ class ValidEnumElementTest extends ConstraintValidatorTestCase
 
         $this->buildViolation('The value you selected is not a valid choice.')
             ->setParameter('{{ value }}', 'object')
+            ->setParameter('{{ choices }}', 'object, object')
             ->setCode(ValidEnumElement::NO_SUCH_CHOICE_ERROR)
             ->assertRaised();
     }

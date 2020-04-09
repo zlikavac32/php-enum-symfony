@@ -14,9 +14,10 @@ use Zlikavac32\Enum\Enum;
 abstract class AbstractEnumConstraint extends Choice
 {
     /**
-     * @var string|Enum
+     * @var string|Enum Although this will contain string, Zlikavac32\Enum\Enum is hinted so that static calls to
+     * this property can also be statically resolved
      */
-    public $enumClass;
+    public ?string $enumClass = null;
 
     public function __construct(Closure $callback, $options = null)
     {
